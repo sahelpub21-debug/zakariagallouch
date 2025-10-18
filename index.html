@@ -247,11 +247,12 @@
         </a>
 
         <!-- Calendly: nouvel onglet SANS navigation de la page courante -->
-        <a class="cta-primary"
-           href="https://calendly.com/gallouch-zakaria/30-min-consultation"
-           onclick="if(!window.open(this.href,'_blank','noopener')){location.href=this.href}; return false;">
-          Book Free Consultation
-        </a>
+<a class="cta-primary"
+   href="#"
+   onclick="event.preventDefault(); event.stopImmediatePropagation(); window.open('https://calendly.com/gallouch-zakaria/30-min-consultation','_blank','noopener');">
+  Book Free Consultation
+</a>
+
       </div>
     </div>
 
