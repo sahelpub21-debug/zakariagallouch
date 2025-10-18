@@ -124,7 +124,7 @@
     }
     .client-logo:hover { background: #fff; border-color: #000; color: #000; }
 
-    /* ---------- IMPACT (Results That Matter) ---------- */
+    /* ---------- IMPACT ---------- */
     .impact { background: #0a0a0a; color: #fff; }
     .impact .section-label { color: #666; }
     .impact .section-title { color: #fff; }
@@ -167,22 +167,14 @@
     .footer-left a:hover { color: #fff; }
     .footer-right { font-size: 13px; color: #666; }
 
-    /* ---------- RESPONSIVE BREAKPOINTS ---------- */
-
-    /* Laptops & small desktops */
+    /* ---------- RESPONSIVE ---------- */
     @media (max-width: 1200px) {
       .hero { gap: 60px; padding: 60px 60px; }
       .services, .clients, .impact, .visual-proof, .cta-section { padding: 100px 60px; }
       .impact-grid { gap: 44px; }
     }
-
-    /* Tablets */
     @media (max-width: 900px) {
-      .hero {
-        grid-template-columns: 1fr;
-        padding: 60px 40px;
-        min-height: auto;
-      }
+      .hero { grid-template-columns: 1fr; padding: 60px 40px; min-height: auto; }
       .hero-image { height: min(60vh, 480px); }
       .hero-stats { grid-template-columns: repeat(2, minmax(0,1fr)); gap: 24px; }
 
@@ -191,12 +183,9 @@
       .clients-grid { grid-template-columns: repeat(3, 1fr); gap: 20px; }
       .proof-grid { grid-template-columns: 1fr; gap: 28px; }
 
-      /* >>> Impact = 2 colonnes sur tablette */
       .impact-grid { grid-template-columns: repeat(2, minmax(0,1fr)); gap: 28px; }
       .impact-card { padding: 28px; }
     }
-
-    /* Mobiles */
     @media (max-width: 600px) {
       .hero { padding: 48px 20px; gap: 32px; }
       .hero-image { height: 320px; }
@@ -204,11 +193,9 @@
 
       .services, .clients, .impact, .visual-proof, .cta-section, .footer { padding: 64px 20px; }
       .services-grid { grid-template-columns: 1fr; gap: 20px; }
-
       .clients-grid { grid-template-columns: repeat(2, 1fr); gap: 16px; }
       .client-logo { height: 72px; font-size: 13px; }
 
-      /* >>> Impact = 1 colonne sur mobile */
       .impact-grid { grid-template-columns: 1fr; gap: 16px; margin-top: 32px; }
       .impact-card { padding: 22px; border-left-width: 2px; }
       .impact-number { margin-bottom: 8px; }
@@ -248,17 +235,21 @@
         </div>
       </div>
       
-      <!-- CTA ROW with Calendly button -->
+      <!-- CTA ROW -->
       <div class="cta-row" style="margin-top:20px;">
         <a href="https://yti.my.canva.site/zg-portfolio" target="_blank" rel="noopener noreferrer" class="cta-primary">
           View Full Portfolio
         </a>
-        <a href="https://www.linkedin.com/in/zakaria-gallouch/" target="_blank" rel="noopener noreferrer" class="cta-secondary">
-          Leave A Message
+
+        <!-- Get in Touch: même look (fond blanc / texte noir) -->
+        <a href="https://www.linkedin.com/in/zakaria-gallouch/" target="_blank" rel="noopener noreferrer" class="cta-primary">
+          Get in Touch
         </a>
-        <a class="cta-primary" id="calendly-btn"
+
+        <!-- Calendly: nouvel onglet SANS navigation de la page courante -->
+        <a class="cta-primary"
            href="https://calendly.com/gallouch-zakaria/30-min-consultation"
-           target="_blank" rel="noopener">
+           onclick="if(!window.open(this.href,'_blank','noopener')){location.href=this.href}; return false;">
           Book Free Consultation
         </a>
       </div>
@@ -342,7 +333,7 @@
     </div>
   </section>
 
-  <!-- IMPACT / Results That Matter -->
+  <!-- IMPACT -->
   <section class="impact">
     <div class="section-header">
       <div class="section-label">What Worked</div>
@@ -424,23 +415,6 @@
       </div>
     </div>
   </footer>
-
-  <!-- Calendly new-tab fallback (works even inside iframes) -->
-  <script>
-    (function(){
-      var btn = document.getElementById('calendly-btn');
-      if (!btn) return;
-      btn.addEventListener('click', function(e){
-        e.preventDefault();
-        var href = this.href;
-        var w = window.open(href, '_blank', 'noopener');
-        if (!w) {
-          try { window.top.location.href = href; }
-          catch(_) { window.location.href = href; }
-        }
-      });
-    })();
-  </script>
 
 </body>
 </html>
