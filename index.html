@@ -71,6 +71,10 @@
     .cta-secondary { background: transparent; color: #fff; border-color: #333; margin-left: 12px; }
     .cta-secondary:hover { border-color: #fff; }
 
+    /* rangée de CTA harmonisée */
+    .cta-row { display: flex; flex-wrap: wrap; gap: 12px; }
+    .cta-row .cta-secondary { margin-left: 0; }
+
     .hero-image {
       width: 100%;
       height: 600px;
@@ -244,10 +248,19 @@
         </div>
       </div>
       
-      <div style="margin-top: 20px;">
-        <a href="https://yti.my.canva.site/zg-portfolio" target="_blank" rel="noopener noreferrer" class="cta-primary">View Full Portfolio</a>
-        <a href="https://www.linkedin.com/in/zakaria-gallouch/" target="_blank" rel="noopener noreferrer" class="cta-secondary">Get in Touch</a>
-      <a href="https://calendly.com/gallouch-zakaria/30-min-consultation" target="_top" rel="noopener"> Book Free Consultation </a>
+      <!-- CTA ROW with Calendly button -->
+      <div class="cta-row" style="margin-top:20px;">
+        <a href="https://yti.my.canva.site/zg-portfolio" target="_blank" rel="noopener noreferrer" class="cta-primary">
+          View Full Portfolio
+        </a>
+        <a href="https://www.linkedin.com/in/zakaria-gallouch/" target="_blank" rel="noopener noreferrer" class="cta-secondary">
+          Leave A Message
+        </a>
+        <a class="cta-primary" id="calendly-btn"
+           href="https://calendly.com/gallouch-zakaria/30-min-consultation"
+           target="_blank" rel="noopener">
+          Book Free Consultation
+        </a>
       </div>
     </div>
 
@@ -332,8 +345,7 @@
   <!-- IMPACT / Results That Matter -->
   <section class="impact">
     <div class="section-header">
-      <div class="section-label">What Worked
-</div>
+      <div class="section-label">What Worked</div>
       <h2 class="section-title">Practical results</h2>
     </div>
 
@@ -412,6 +424,23 @@
       </div>
     </div>
   </footer>
+
+  <!-- Calendly new-tab fallback (works even inside iframes) -->
+  <script>
+    (function(){
+      var btn = document.getElementById('calendly-btn');
+      if (!btn) return;
+      btn.addEventListener('click', function(e){
+        e.preventDefault();
+        var href = this.href;
+        var w = window.open(href, '_blank', 'noopener');
+        if (!w) {
+          try { window.top.location.href = href; }
+          catch(_) { window.location.href = href; }
+        }
+      });
+    })();
+  </script>
 
 </body>
 </html>
