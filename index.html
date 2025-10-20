@@ -168,6 +168,82 @@
     }
     .proof-image img { width: 100%; height: 100%; object-fit: cover; object-position: center; }
 
+    /* ---------- SELECTED PROJECTS SLIDER ---------- */
+.slider {
+  position: relative;
+  max-width: 1100px;
+  margin: 60px auto 0;
+}
+.slider-viewport {
+  overflow: hidden;
+  border: 1px solid #d0d0d0;
+  background: #f5f5f5;
+}
+.slider-track {
+  display: flex;
+  transition: transform 0.4s ease;
+  will-change: transform;
+}
+.slide {
+  flex: 0 0 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+}
+.slide img {
+  width: 100%;
+  height: 360px;              /* taille moyenne */
+  object-fit: contain;        /* pas de crop */
+  background: #e9e9e9;        /* fond neutre autour de l’image */
+  border: 1px solid #dcdcdc;
+  display: block;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+.slider-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  border: 1px solid #ccc;
+  background: rgba(255,255,255,0.85);
+  backdrop-filter: blur(4px);
+  padding: 8px 12px;
+  cursor: pointer;
+  font-size: 18px;
+  line-height: 1;
+  color: #111;
+}
+.slider-btn:hover { background: #fff; }
+.slider-btn.prev { left: -8px; }
+.slider-btn.next { right: -8px; }
+
+.slider-dots {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  margin-top: 12px;
+}
+.slider-dot {
+  width: 8px;
+  height: 8px;
+  border: 0;
+  border-radius: 999px;
+  background: #bbb;
+  cursor: pointer;
+}
+.slider-dot.is-active { background: #111; }
+
+/* Responsive */
+@media (max-width: 900px) {
+  .slide img { height: 300px; }
+}
+@media (max-width: 600px) {
+  .slide img { height: 220px; }
+  .slider-btn { display: none; } /* on cache les flèches sur mobile, swipe/dots suffisent */
+}
+    
     /* ---------- CTA ---------- */
     .cta-section { background: #fff; text-align: center; }
     .cta-box {
@@ -394,51 +470,37 @@
 
   <!-- VISUAL PROOF -->
   <section class="visual-proof">
-    <div class="section-header">
-      <div class="section-label">Featured Work</div>
-      <h2 class="section-title">Selected Projects</h2>
-      <p class="section-description">
-        From aviation finance to sports technology—strategic communications that drive measurable brand authority.
-      </p>
+  <div class="section-header">
+    <div class="section-label">Featured Work</div>
+    <h2 class="section-title">Selected Projects</h2>
+    <p class="section-description">
+      From aviation finance to sports technology—strategic communications that drive measurable brand authority.
+    </p>
+  </div>
+
+  <div class="slider" aria-label="Selected projects carousel" tabindex="0">
+    <button class="slider-btn prev" aria-label="Previous slide">‹</button>
+
+    <div class="slider-viewport">
+      <div class="slider-track">
+        <div class="slide"><img src="https://i.imgur.com/ebjeaXx.jpg" alt="Case study 1" draggable="false"></div>
+        <div class="slide"><img src="https://i.imgur.com/DH6Zkug.jpg" alt="Case study 2" draggable="false"></div>
+        <div class="slide"><img src="https://i.imgur.com/MpmppIl.jpg" alt="Case study 3" draggable="false"></div>
+        <div class="slide"><img src="https://i.imgur.com/8UdUUNb.jpg" alt="Case study 4" draggable="false"></div>
+        <div class="slide"><img src="https://i.imgur.com/rSHZEHl.jpg" alt="Case study 5" draggable="false"></div>
+        <div class="slide"><img src="https://i.imgur.com/1MM3Kry.jpg" alt="Case study 6" draggable="false"></div>
+        <div class="slide"><img src="https://i.imgur.com/X3rmKDy.jpg" alt="Case study 7" draggable="false"></div>
+        <div class="slide"><img src="https://i.imgur.com/DA2DvHx.jpg" alt="Case study 8" draggable="false"></div>
+        <div class="slide"><img src="https://i.imgur.com/uiPAtFs.jpg" alt="Case study 9" draggable="false"></div>
+        <div class="slide"><img src="https://i.imgur.com/6nUclwG.jpg" alt="Case study 10" draggable="false"></div>
+        <div class="slide"><img src="https://i.imgur.com/TgY1Fez.jpg" alt="Case study 11" draggable="false"></div>
+      </div>
     </div>
 
-    <div class="proof-grid">
-      <!-- (Modif) 11 images cliquables vers Imgur -->
-      <a class="proof-image" href="https://imgur.com/ebjeaXx" target="_blank" rel="noopener noreferrer">
-        <img src="https://i.imgur.com/ebjeaXx.jpg" alt="Case study 1" />
-      </a>
-      <a class="proof-image" href="https://imgur.com/DH6Zkug" target="_blank" rel="noopener noreferrer">
-        <img src="https://i.imgur.com/DH6Zkug.jpg" alt="Case study 2" />
-      </a>
-      <a class="proof-image" href="https://imgur.com/MpmppIl" target="_blank" rel="noopener noreferrer">
-        <img src="https://i.imgur.com/MpmppIl.jpg" alt="Case study 3" />
-      </a>
-      <a class="proof-image" href="https://imgur.com/a/esxQ01I#8UdUUNb" target="_blank" rel="noopener noreferrer">
-        <img src="https://i.imgur.com/8UdUUNb.jpg" alt="Case study 4 (album)" />
-      </a>
-      <a class="proof-image" href="https://imgur.com/rSHZEHl" target="_blank" rel="noopener noreferrer">
-        <img src="https://i.imgur.com/rSHZEHl.jpg" alt="Case study 5" />
-      </a>
-      <a class="proof-image" href="https://imgur.com/1MM3Kry" target="_blank" rel="noopener noreferrer">
-        <img src="https://i.imgur.com/1MM3Kry.jpg" alt="Case study 6" />
-      </a>
-      <a class="proof-image" href="https://imgur.com/X3rmKDy" target="_blank" rel="noopener noreferrer">
-        <img src="https://i.imgur.com/X3rmKDy.jpg" alt="Case study 7" />
-      </a>
-      <a class="proof-image" href="https://imgur.com/DA2DvHx" target="_blank" rel="noopener noreferrer">
-        <img src="https://i.imgur.com/DA2DvHx.jpg" alt="Case study 8" />
-      </a>
-      <a class="proof-image" href="https://imgur.com/uiPAtFs" target="_blank" rel="noopener noreferrer">
-        <img src="https://i.imgur.com/uiPAtFs.jpg" alt="Case study 9" />
-      </a>
-      <a class="proof-image" href="https://imgur.com/6nUclwG" target="_blank" rel="noopener noreferrer">
-        <img src="https://i.imgur.com/6nUclwG.jpg" alt="Case study 10" />
-      </a>
-      <a class="proof-image" href="https://imgur.com/TgY1Fez" target="_blank" rel="noopener noreferrer">
-        <img src="https://i.imgur.com/TgY1Fez.jpg" alt="Case study 11" />
-      </a>
-    </div>
-  </section>
+    <button class="slider-btn next" aria-label="Next slide">›</button>
+    <div class="slider-dots" role="tablist" aria-label="Slides"></div>
+  </div>
+</section>
 
   <!-- CTA -->
   <section class="cta-section" id="portfolio">
