@@ -1,22 +1,4 @@
-<!-- VISUAL PROOF — SLIDER -->
-  <section class="visual-proof">
-    <div class="section-header">
-      <div class="section-label">Featured Work</div>
-      <h2 class="section-title">Selected Projects</h2>
-      <p class="section-description">
-        Strategic communications across diverse industries—from aviation finance to sports technology.
-      </p>
-    </div>
-
-    <div class="slider-container">
-      <!-- Slider Controls -->
-      <div class="slider-controls">
-        <button class="slider-arrow prev" id="prevBtn">‹</button>
-        <div class="slider-dots">
-          <span class="dot active" data-slide="0"></span>
-          <span class="dot" data-slide="1"></span>
-          <span class="dot" data-slide="2"></span>
-          <span class="dot" data<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -37,7 +19,7 @@
     .hero {
       min-height: 100vh;
       display: grid;
-      grid-template-columns: 1fr; /* 1 colonne, visuel supprimé */
+      grid-template-columns: 1fr;
       align-items: center;
       padding: 0 80px;
       gap: 40px;
@@ -122,7 +104,7 @@
     .cta-row .cta-secondary { margin-left: 0; }
 
     /* ---------- SECTIONS GENERIC ---------- */
-    .services, .clients, .impact, .visual-proof, .cta-section { padding: 120px 80px; }
+    .services, .clients, .impact, .cta-section { padding: 120px 80px; }
     .section-header { max-width: 700px; margin-bottom: 80px; }
     .section-label {
       font-size: 12px; font-weight: 500; letter-spacing: 2px;
@@ -169,147 +151,6 @@
     .impact-number { font-size: clamp(32px, 9vw, 56px); font-weight: 300; margin-bottom: 12px; color: #fff; }
     .impact-label { font-size: 15px; color: #999; line-height: 1.5; }
 
-    /* ---------- VISUAL PROOF - SLIDER ---------- */
-    .visual-proof { 
-      background: #fafafa; 
-      padding: 120px 80px;
-    }
-    
-    .slider-container {
-      max-width: 1200px;
-      margin: 0 auto;
-      position: relative;
-    }
-    
-    /* Slider Controls */
-    .slider-controls {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 50px;
-    }
-    
-    .slider-arrow {
-      width: 48px;
-      height: 48px;
-      border-radius: 50%;
-      background: #fff;
-      border: 1px solid #e0e0e0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      font-size: 20px;
-      color: #666;
-    }
-    
-    .slider-arrow:hover {
-      background: #0a0a0a;
-      color: #fff;
-      border-color: #0a0a0a;
-    }
-    
-    .slider-arrow.disabled {
-      opacity: 0.3;
-      cursor: not-allowed;
-    }
-    
-    /* Progress Dots centered between arrows */
-    .slider-dots {
-      display: flex;
-      gap: 8px;
-      align-items: center;
-    }
-    
-    .dot {
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background: #d0d0d0;
-      transition: all 0.3s ease;
-      cursor: pointer;
-    }
-    
-    .dot.active {
-      width: 32px;
-      border-radius: 4px;
-      background: #0a0a0a;
-    }
-    
-    /* Slider Wrapper */
-    .slider-wrapper {
-      position: relative;
-      overflow: hidden;
-      width: 100%;
-    }
-    
-    .slider-track {
-      display: flex;
-      transition: transform 0.5s ease;
-    }
-    
-    .slider-slide {
-      min-width: 100%;
-      width: 100%;
-    }
-    
-    /* Slide Content */
-    .slide-content {
-      text-align: center;
-    }
-    
-    .slide-title {
-      font-size: 32px;
-      font-weight: 300;
-      color: #000;
-      margin-bottom: 12px;
-      letter-spacing: -0.5px;
-    }
-    
-    .slide-description {
-      font-size: 15px;
-      color: #666;
-      margin-bottom: 50px;
-    }
-    
-    .images-grid {
-      display: grid;
-      gap: 24px;
-      grid-template-columns: repeat(3, 1fr);
-      max-width: 100%;
-    }
-    
-    .images-grid.grid-2 {
-      grid-template-columns: repeat(2, 1fr);
-      max-width: 700px;
-      margin: 0 auto;
-    }
-    
-    .project-image {
-      aspect-ratio: 16 / 10;
-      background: #fff;
-      border-radius: 8px;
-      overflow: hidden;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
-      transition: all 0.3s ease;
-    }
-    
-    .project-image:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 6px 16px rgba(0,0,0,0.1);
-    }
-    
-    .project-image img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-      user-select: none;
-      -webkit-user-drag: none;
-      pointer-events: none;
-    }
-
     /* ---------- CTA ---------- */
     .cta-section { background: #fff; text-align: center; }
     .cta-box {
@@ -332,32 +173,25 @@
     /* ---------- RESPONSIVE ---------- */
     @media (max-width: 1200px) {
       .hero { gap: 60px; padding: 60px 60px; }
-      .services, .clients, .impact, .visual-proof, .cta-section { padding: 100px 60px; }
+      .services, .clients, .impact, .cta-section { padding: 100px 60px; }
       .impact-grid { gap: 44px; }
-      .slide-grid { grid-template-columns: repeat(2, 1fr); }
-      .slide-grid.grid-2 { grid-template-columns: repeat(2, 1fr); }
     }
     @media (max-width: 900px) {
       .hero { grid-template-columns: 1fr; padding: 60px 40px; min-height: auto; }
       .hero-stats { grid-template-columns: repeat(2, minmax(0,1fr)); gap: 24px; }
 
-      .services, .clients, .impact, .visual-proof, .cta-section { padding: 80px 40px; }
+      .services, .clients, .impact, .cta-section { padding: 80px 40px; }
       .services-grid { grid-template-columns: repeat(2, 1fr); gap: 28px; }
       .clients-grid { grid-template-columns: repeat(3, 1fr); gap: 20px; }
 
       .impact-grid { grid-template-columns: repeat(2, minmax(0,1fr)); gap: 28px; }
       .impact-card { padding: 28px; }
-      
-      .carousel-nav { gap: 16px; margin-bottom: 40px; }
-      .nav-tab { padding: 10px 20px; font-size: 13px; }
-      .carousel-slides { height: auto; }
-      .slide-grid { grid-template-columns: repeat(2, 1fr); }
     }
     @media (max-width: 600px) {
       .hero { padding: 48px 20px; gap: 32px; }
       .hero-stats { grid-template-columns: 1fr; gap: 16px; }
 
-      .services, .clients, .impact, .visual-proof, .cta-section, .footer { padding: 64px 20px; }
+      .services, .clients, .impact, .cta-section, .footer { padding: 64px 20px; }
       .services-grid { grid-template-columns: 1fr; gap: 20px; }
       .clients-grid { grid-template-columns: repeat(2, 1fr); gap: 16px; }
       .client-logo { height: 72px; font-size: 13px; }
@@ -372,12 +206,6 @@
       }
       .cta-secondary { margin-left: 0; }
       .footer-content { flex-direction: column; align-items: flex-start; }
-      
-      .carousel-nav { gap: 8px; margin-bottom: 32px; }
-      .nav-tab { padding: 8px 16px; font-size: 12px; }
-      .slide-grid, .slide-grid.grid-2 { grid-template-columns: 1fr; gap: 16px; }
-      .slide-title { font-size: 24px; }
-      .carousel-progress { margin-top: 32px; }
     }
   </style>
 </head>
@@ -551,17 +379,6 @@
     </div>
   </section>
 
-      <!-- Progress Indicators -->
-      <div class="carousel-progress">
-        <span class="progress-dot active" data-slide="0"></span>
-        <span class="progress-dot" data-slide="1"></span>
-        <span class="progress-dot" data-slide="2"></span>
-        <span class="progress-dot" data-slide="3"></span>
-        <span class="progress-dot" data-slide="4"></span>
-      </div>
-    </div>
-  </section>
-
   <!-- CTA -->
   <section class="cta-section" id="portfolio">
     <div class="cta-box">
@@ -589,115 +406,6 @@
       </div>
     </div>
   </footer>
-
-  <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      // Carousel functionality
-      const navTabs = document.querySelectorAll('.nav-tab');
-      const slides = document.querySelectorAll('.carousel-slide');
-      const dots = document.querySelectorAll('.progress-dot');
-      let currentSlide = 0;
-      let autoPlayInterval;
-
-      function showSlide(index) {
-        // Remove active classes
-        navTabs.forEach(tab => tab.classList.remove('active'));
-        slides.forEach(slide => {
-          slide.classList.remove('active', 'prev');
-        });
-        dots.forEach(dot => dot.classList.remove('active'));
-
-        // Add prev class to previous slides
-        for(let i = 0; i < index; i++) {
-          slides[i].classList.add('prev');
-        }
-
-        // Add active classes
-        navTabs[index].classList.add('active');
-        slides[index].classList.add('active');
-        dots[index].classList.add('active');
-        
-        currentSlide = index;
-      }
-
-      // Tab navigation
-      navTabs.forEach(tab => {
-        tab.addEventListener('click', function() {
-          const slideIndex = parseInt(this.getAttribute('data-slide'));
-          showSlide(slideIndex);
-          resetAutoPlay();
-        });
-      });
-
-      // Dot navigation
-      dots.forEach(dot => {
-        dot.addEventListener('click', function() {
-          const slideIndex = parseInt(this.getAttribute('data-slide'));
-          showSlide(slideIndex);
-          resetAutoPlay();
-        });
-      });
-
-      // Auto-play functionality
-      function startAutoPlay() {
-        autoPlayInterval = setInterval(() => {
-          const nextSlide = (currentSlide + 1) % slides.length;
-          showSlide(nextSlide);
-        }, 5000); // Change slide every 5 seconds
-      }
-
-      function resetAutoPlay() {
-        clearInterval(autoPlayInterval);
-        startAutoPlay();
-      }
-
-      // Keyboard navigation
-      document.addEventListener('keydown', function(e) {
-        if(e.target.closest('.visual-proof')) {
-          if(e.key === 'ArrowLeft' && currentSlide > 0) {
-            showSlide(currentSlide - 1);
-            resetAutoPlay();
-          } else if(e.key === 'ArrowRight' && currentSlide < slides.length - 1) {
-            showSlide(currentSlide + 1);
-            resetAutoPlay();
-          }
-        }
-      });
-
-      // Touch/swipe support for mobile
-      let touchStartX = 0;
-      let touchEndX = 0;
-      
-      const carouselContainer = document.querySelector('.carousel-slides');
-      
-      carouselContainer.addEventListener('touchstart', function(e) {
-        touchStartX = e.changedTouches[0].screenX;
-      }, {passive: true});
-      
-      carouselContainer.addEventListener('touchend', function(e) {
-        touchEndX = e.changedTouches[0].screenX;
-        handleSwipe();
-      }, {passive: true});
-      
-      function handleSwipe() {
-        if (touchEndX < touchStartX - 50 && currentSlide < slides.length - 1) {
-          showSlide(currentSlide + 1);
-          resetAutoPlay();
-        }
-        if (touchEndX > touchStartX + 50 && currentSlide > 0) {
-          showSlide(currentSlide - 1);
-          resetAutoPlay();
-        }
-      }
-
-      // Start auto-play
-      startAutoPlay();
-
-      // Pause on hover
-      carouselContainer.addEventListener('mouseenter', () => clearInterval(autoPlayInterval));
-      carouselContainer.addEventListener('mouseleave', () => startAutoPlay());
-    });
-  </script>
 
 </body>
 </html>
