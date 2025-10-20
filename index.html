@@ -151,32 +151,39 @@
     .impact-number { font-size: clamp(32px, 9vw, 56px); font-weight: 300; margin-bottom: 12px; color: #fff; }
     .impact-label { font-size: 15px; color: #999; line-height: 1.5; }
 
-    /* ---------- SELECTED PROJECTS — FADE SLIDER ---------- */
+    /* ---------- SELECTED PROJECTS — HORIZONTAL SLIDER ---------- */
     .visual-proof { background: #fafafa; }
-    .fade-slider {
+    .hslider {
       position: relative;
       max-width: 1100px;
       margin: 60px auto 0;
-      height: 360px;          /* taille moyenne */
-      overflow: hidden;       /* pas de cadre visible */
+      overflow: hidden;                  /* pas de cadre */
+      height: 360px;                     /* taille moyenne desktop */
+      touch-action: pan-y;               /* permet le swipe horizontal sans scroll bloqué */
     }
-    .fade-slide {
-      position: absolute;
-      inset: 0;
+    .hslider-viewport { width: 100%; height: 100%; overflow: hidden; }
+    .hslider-track {
+      display: flex;
+      width: 100%;
+      height: 100%;
+      transform: translateX(0);
+      transition: transform .5s ease;    /* slide fluide */
+      will-change: transform;
+    }
+    .hslide {
+      flex: 0 0 100%;                    /* 1 slide = 100% largeur */
+      height: 100%;
       display: flex;
       align-items: center;
       justify-content: center;
-      opacity: 0;
-      transition: opacity .6s ease;
-      pointer-events: none;   /* non cliquable */
+      pointer-events: none;              /* non cliquable */
     }
-    .fade-slide.is-active { opacity: 1; }
-    .fade-slide img {
-      max-height: 360px;
+    .hslide img {
+      max-height: 100%;
       max-width: 100%;
-      width: auto;            /* no crop */
-      height: auto;           /* no crop */
-      object-fit: contain;    /* no crop */
+      width: auto;
+      height: auto;
+      object-fit: contain;               /* pas de crop */
       display: block;
       user-select: none;
       -webkit-user-drag: none;
@@ -217,8 +224,8 @@
 
       .impact-grid { grid-template-columns: repeat(2, minmax(0,1fr)); gap: 28px; }
       .impact-card { padding: 28px; }
-      .fade-slider { height: 300px; }
-      .fade-slide img { max-height: 300px; }
+
+      .hslider { height: 300px; }       /* taille moyenne tablette */
     }
     @media (max-width: 600px) {
       .hero { padding: 48px 20px; gap: 32px; }
@@ -240,8 +247,7 @@
       .cta-secondary { margin-left: 0; }
       .footer-content { flex-direction: column; align-items: flex-start; }
 
-      .fade-slider { height: 220px; }
-      .fade-slide img { max-height: 220px; }
+      .hslider { height: 220px; }       /* taille mobile */
     }
   </style>
 </head>
@@ -415,7 +421,7 @@
     </div>
   </section>
 
-  <!-- VISUAL PROOF — FADE SLIDER -->
+  <!-- VISUAL PROOF — HORIZONTAL SLIDER -->
   <section class="visual-proof">
     <div class="section-header">
       <div class="section-label">Featured Work</div>
@@ -425,18 +431,22 @@
       </p>
     </div>
 
-    <div class="fade-slider" id="projects-slider" aria-label="Selected projects">
-      <div class="fade-slide"><img src="https://i.imgur.com/ebjeaXx.jpg" alt="Case study 1"></div>
-      <div class="fade-slide"><img src="https://i.imgur.com/DH6Zkug.jpg" alt="Case study 2"></div>
-      <div class="fade-slide"><img src="https://i.imgur.com/MpmppIl.jpg" alt="Case study 3"></div>
-      <div class="fade-slide"><img src="https://i.imgur.com/8UdUUNb.jpg" alt="Case study 4"></div>
-      <div class="fade-slide"><img src="https://i.imgur.com/rSHZEHl.jpg" alt="Case study 5"></div>
-      <div class="fade-slide"><img src="https://i.imgur.com/1MM3Kry.jpg" alt="Case study 6"></div>
-      <div class="fade-slide"><img src="https://i.imgur.com/X3rmKDy.jpg" alt="Case study 7"></div>
-      <div class="fade-slide"><img src="https://i.imgur.com/DA2DvHx.jpg" alt="Case study 8"></div>
-      <div class="fade-slide"><img src="https://i.imgur.com/uiPAtFs.jpg" alt="Case study 9"></div>
-      <div class="fade-slide"><img src="https://i.imgur.com/6nUclwG.jpg" alt="Case study 10"></div>
-      <div class="fade-slide"><img src="https://i.imgur.com/TgY1Fez.jpg" alt="Case study 11"></div>
+    <div class="hslider" id="projects-slider" aria-label="Selected projects">
+      <div class="hslider-viewport">
+        <div class="hslider-track">
+          <div class="hslide"><img src="https://i.imgur.com/ebjeaXx.jpg" alt="Case study 1"></div>
+          <div class="hslide"><img src="https://i.imgur.com/DH6Zkug.jpg" alt="Case study 2"></div>
+          <div class="hslide"><img src="https://i.imgur.com/MpmppIl.jpg" alt="Case study 3"></div>
+          <div class="hslide"><img src="https://i.imgur.com/8UdUUNb.jpg" alt="Case study 4"></div>
+          <div class="hslide"><img src="https://i.imgur.com/rSHZEHl.jpg" alt="Case study 5"></div>
+          <div class="hslide"><img src="https://i.imgur.com/1MM3Kry.jpg" alt="Case study 6"></div>
+          <div class="hslide"><img src="https://i.imgur.com/X3rmKDy.jpg" alt="Case study 7"></div>
+          <div class="hslide"><img src="https://i.imgur.com/DA2DvHx.jpg" alt="Case study 8"></div>
+          <div class="hslide"><img src="https://i.imgur.com/uiPAtFs.jpg" alt="Case study 9"></div>
+          <div class="hslide"><img src="https://i.imgur.com/6nUclwG.jpg" alt="Case study 10"></div>
+          <div class="hslide"><img src="https://i.imgur.com/TgY1Fez.jpg" alt="Case study 11"></div>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -468,26 +478,97 @@
     </div>
   </footer>
 
-  <!-- JS: slider auto-défilant -->
+  <!-- JS: slider horizontal auto + swipe mobile (loop infini fluide) -->
   <script>
     (function () {
       const slider = document.getElementById('projects-slider');
       if (!slider) return;
-      const slides = Array.from(slider.querySelectorAll('.fade-slide'));
-      if (!slides.length) return;
 
-      let i = 0;
-      slides.forEach((s, idx) => s.setAttribute('aria-hidden', idx === 0 ? 'false' : 'true'));
-      slides[0].classList.add('is-active');
+      const viewport = slider.querySelector('.hslider-viewport');
+      const track = slider.querySelector('.hslider-track');
 
-      const speedMs = 3500; // vitesse "normale"
-      setInterval(() => {
-        slides[i].classList.remove('is-active');
-        slides[i].setAttribute('aria-hidden', 'true');
-        i = (i + 1) % slides.length;
-        slides[i].classList.add('is-active');
-        slides[i].setAttribute('aria-hidden', 'false');
-      }, speedMs);
+      // Prépare les slides + clones (pour loop infini fluide)
+      let baseSlides = Array.from(track.children);
+      if (baseSlides.length === 0) return;
+
+      const firstClone = baseSlides[0].cloneNode(true);
+      const lastClone  = baseSlides[baseSlides.length - 1].cloneNode(true);
+      track.appendChild(firstClone);
+      track.insertBefore(lastClone, baseSlides[0]);
+
+      let slides = Array.from(track.children);
+      let index = 1; // on commence sur le 1er "vrai" slide
+      const speedMs = 3500;
+
+      function setTransition(on) {
+        track.style.transition = on ? 'transform .5s ease' : 'none';
+      }
+      function goTo(i, withTransition = true) {
+        setTransition(withTransition);
+        index = i;
+        track.style.transform = 'translateX(-' + (index * 100) + '%)';
+      }
+
+      // Mise en page initiale
+      goTo(index, false);
+      requestAnimationFrame(() => setTransition(true));
+
+      // Auto-play
+      let timer = setInterval(() => next(), speedMs);
+      function next() { goTo(index + 1, true); }
+      function prev() { goTo(index - 1, true); }
+
+      // Rebouclage sans "saut"
+      track.addEventListener('transitionend', () => {
+        if (index === slides.length - 1) {  // clone de fin -> revenir au 1
+          goTo(1, false);
+        } else if (index === 0) {            // clone de début -> revenir au dernier réel
+          goTo(slides.length - 2, false);
+        }
+      });
+
+      // Swipe / drag (mobile & desktop)
+      let pointerDown = false, startX = 0, deltaX = 0, pid = null;
+
+      viewport.addEventListener('pointerdown', (e) => {
+        pointerDown = true; pid = e.pointerId;
+        viewport.setPointerCapture(pid);
+        startX = e.clientX;
+        deltaX = 0;
+        clearInterval(timer);
+        setTransition(false);
+      });
+
+      viewport.addEventListener('pointermove', (e) => {
+        if (!pointerDown) return;
+        deltaX = e.clientX - startX;
+        const percent = (deltaX / viewport.clientWidth) * 100;
+        track.style.transform = 'translateX(calc(-' + (index * 100) + '% + ' + percent + '%))';
+      });
+
+      function endDrag() {
+        if (!pointerDown) return;
+        pointerDown = false;
+        setTransition(true);
+        const threshold = viewport.clientWidth * 0.15; // 15% largeur
+        if (Math.abs(deltaX) > threshold) {
+          if (deltaX < 0) next(); else prev();
+        } else {
+          goTo(index, true); // revenir en place
+        }
+        timer = setInterval(() => next(), speedMs);
+      }
+
+      viewport.addEventListener('pointerup', endDrag);
+      viewport.addEventListener('pointercancel', endDrag);
+      viewport.addEventListener('pointerleave', endDrag);
+
+      // Recalage au resize (évite décalages)
+      window.addEventListener('resize', () => {
+        const current = index;
+        goTo(current, false);
+        requestAnimationFrame(() => setTransition(true));
+      });
     })();
   </script>
 </body>
