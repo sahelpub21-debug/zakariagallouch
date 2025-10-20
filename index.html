@@ -1,4 +1,22 @@
-<!DOCTYPE html>
+<!-- VISUAL PROOF — SLIDER -->
+  <section class="visual-proof">
+    <div class="section-header">
+      <div class="section-label">Featured Work</div>
+      <h2 class="section-title">Selected Projects</h2>
+      <p class="section-description">
+        Strategic communications across diverse industries—from aviation finance to sports technology.
+      </p>
+    </div>
+
+    <div class="slider-container">
+      <!-- Slider Controls -->
+      <div class="slider-controls">
+        <button class="slider-arrow prev" id="prevBtn">‹</button>
+        <div class="slider-dots">
+          <span class="dot active" data-slide="0"></span>
+          <span class="dot" data-slide="1"></span>
+          <span class="dot" data-slide="2"></span>
+          <span class="dot" data<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -151,144 +169,60 @@
     .impact-number { font-size: clamp(32px, 9vw, 56px); font-weight: 300; margin-bottom: 12px; color: #fff; }
     .impact-label { font-size: 15px; color: #999; line-height: 1.5; }
 
-    /* ---------- VISUAL PROOF - CAROUSEL ---------- */
+    /* ---------- VISUAL PROOF - SLIDER ---------- */
     .visual-proof { 
       background: #fafafa; 
       padding: 120px 80px;
     }
     
-    .carousel-container {
-      max-width: 1400px;
+    .slider-container {
+      max-width: 1200px;
       margin: 0 auto;
       position: relative;
     }
     
-    /* Navigation Tabs */
-    .carousel-nav {
+    /* Slider Controls */
+    .slider-controls {
       display: flex;
-      justify-content: center;
-      gap: 24px;
-      margin-bottom: 60px;
-      flex-wrap: wrap;
-      padding: 0 20px;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 50px;
     }
     
-    .nav-tab {
-      padding: 12px 24px;
-      background: transparent;
+    .slider-arrow {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: #fff;
       border: 1px solid #e0e0e0;
-      color: #666;
-      font-size: 14px;
-      font-weight: 500;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       cursor: pointer;
       transition: all 0.3s ease;
-      border-radius: 30px;
-      white-space: nowrap;
+      font-size: 20px;
+      color: #666;
     }
     
-    .nav-tab:hover {
-      border-color: #999;
-      color: #333;
-    }
-    
-    .nav-tab.active {
+    .slider-arrow:hover {
       background: #0a0a0a;
       color: #fff;
       border-color: #0a0a0a;
     }
     
-    /* Slides Container */
-    .carousel-slides {
-      position: relative;
-      overflow: hidden;
-      height: 400px;
+    .slider-arrow.disabled {
+      opacity: 0.3;
+      cursor: not-allowed;
     }
     
-    .carousel-slide {
-      position: absolute;
-      width: 100%;
-      opacity: 0;
-      transform: translateX(100%);
-      transition: all 0.6s ease;
-      pointer-events: none;
-    }
-    
-    .carousel-slide.active {
-      opacity: 1;
-      transform: translateX(0);
-      pointer-events: auto;
-    }
-    
-    .carousel-slide.prev {
-      transform: translateX(-100%);
-    }
-    
-    /* Slide Content */
-    .slide-header {
-      text-align: center;
-      margin-bottom: 40px;
-    }
-    
-    .slide-title {
-      font-size: 28px;
-      font-weight: 300;
-      color: #000;
-      margin-bottom: 8px;
-      letter-spacing: -0.5px;
-    }
-    
-    .slide-subtitle {
-      font-size: 14px;
-      color: #666;
-    }
-    
-    .slide-grid {
-      display: grid;
-      gap: 20px;
-      grid-template-columns: repeat(3, 1fr);
-    }
-    
-    .slide-grid.grid-2 {
-      grid-template-columns: repeat(2, 1fr);
-      max-width: 800px;
-      margin: 0 auto;
-    }
-    
-    .proof-image {
-      aspect-ratio: 16 / 10;
-      background: #fff;
+    /* Progress Dots centered between arrows */
+    .slider-dots {
       display: flex;
-      align-items: center;
-      justify-content: center;
-      overflow: hidden;
-      box-shadow: 0 2px 12px rgba(0,0,0,0.08);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-    
-    .proof-image:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 8px 24px rgba(0,0,0,0.12);
-    }
-    
-    .proof-image img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-      user-select: none;
-      -webkit-user-drag: none;
-      pointer-events: none;
-    }
-    
-    /* Progress Indicators */
-    .carousel-progress {
-      display: flex;
-      justify-content: center;
       gap: 8px;
-      margin-top: 40px;
+      align-items: center;
     }
     
-    .progress-dot {
+    .dot {
       width: 8px;
       height: 8px;
       border-radius: 50%;
@@ -297,10 +231,83 @@
       cursor: pointer;
     }
     
-    .progress-dot.active {
-      width: 24px;
+    .dot.active {
+      width: 32px;
       border-radius: 4px;
       background: #0a0a0a;
+    }
+    
+    /* Slider Wrapper */
+    .slider-wrapper {
+      position: relative;
+      overflow: hidden;
+      width: 100%;
+    }
+    
+    .slider-track {
+      display: flex;
+      transition: transform 0.5s ease;
+    }
+    
+    .slider-slide {
+      min-width: 100%;
+      width: 100%;
+    }
+    
+    /* Slide Content */
+    .slide-content {
+      text-align: center;
+    }
+    
+    .slide-title {
+      font-size: 32px;
+      font-weight: 300;
+      color: #000;
+      margin-bottom: 12px;
+      letter-spacing: -0.5px;
+    }
+    
+    .slide-description {
+      font-size: 15px;
+      color: #666;
+      margin-bottom: 50px;
+    }
+    
+    .images-grid {
+      display: grid;
+      gap: 24px;
+      grid-template-columns: repeat(3, 1fr);
+      max-width: 100%;
+    }
+    
+    .images-grid.grid-2 {
+      grid-template-columns: repeat(2, 1fr);
+      max-width: 700px;
+      margin: 0 auto;
+    }
+    
+    .project-image {
+      aspect-ratio: 16 / 10;
+      background: #fff;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+      transition: all 0.3s ease;
+    }
+    
+    .project-image:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(0,0,0,0.1);
+    }
+    
+    .project-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      user-select: none;
+      -webkit-user-drag: none;
+      pointer-events: none;
     }
 
     /* ---------- CTA ---------- */
@@ -327,7 +334,8 @@
       .hero { gap: 60px; padding: 60px 60px; }
       .services, .clients, .impact, .visual-proof, .cta-section { padding: 100px 60px; }
       .impact-grid { gap: 44px; }
-      .grid-3 { grid-template-columns: repeat(2, 1fr); }
+      .slide-grid { grid-template-columns: repeat(2, 1fr); }
+      .slide-grid.grid-2 { grid-template-columns: repeat(2, 1fr); }
     }
     @media (max-width: 900px) {
       .hero { grid-template-columns: 1fr; padding: 60px 40px; min-height: auto; }
@@ -340,8 +348,10 @@
       .impact-grid { grid-template-columns: repeat(2, minmax(0,1fr)); gap: 28px; }
       .impact-card { padding: 28px; }
       
-      .category-section { margin-bottom: 60px; }
-      .grid-2, .grid-3 { grid-template-columns: repeat(2, 1fr); }
+      .carousel-nav { gap: 16px; margin-bottom: 40px; }
+      .nav-tab { padding: 10px 20px; font-size: 13px; }
+      .carousel-slides { height: auto; }
+      .slide-grid { grid-template-columns: repeat(2, 1fr); }
     }
     @media (max-width: 600px) {
       .hero { padding: 48px 20px; gap: 32px; }
@@ -363,9 +373,11 @@
       .cta-secondary { margin-left: 0; }
       .footer-content { flex-direction: column; align-items: flex-start; }
       
-      .category-section { margin-bottom: 48px; }
-      .grid-2, .grid-3 { grid-template-columns: 1fr; gap: 16px; }
-      .category-title { font-size: 20px; }
+      .carousel-nav { gap: 8px; margin-bottom: 32px; }
+      .nav-tab { padding: 8px 16px; font-size: 12px; }
+      .slide-grid, .slide-grid.grid-2 { grid-template-columns: 1fr; gap: 16px; }
+      .slide-title { font-size: 24px; }
+      .carousel-progress { margin-top: 32px; }
     }
   </style>
 </head>
@@ -539,80 +551,102 @@
     </div>
   </section>
 
-  <!-- VISUAL PROOF — ORGANIZED GALLERY -->
+  <!-- VISUAL PROOF — CAROUSEL GALLERY -->
   <section class="visual-proof">
     <div class="section-header">
       <div class="section-label">Featured Work</div>
       <h2 class="section-title">Selected Projects</h2>
       <p class="section-description">
-        Strategic communications across diverse industries—from aviation finance to sports technology. Explore work organized by expertise area.
+        Strategic communications across diverse industries—from aviation finance to sports technology.
       </p>
     </div>
 
-    <!-- Media Strategy Category -->
-    <div class="category-section">
-      <div class="category-header">
-        <h3 class="category-title">Media Strategy</h3>
-        <p class="category-subtitle">PR Strategy, Media listings, Event management</p>
+    <div class="carousel-container">
+      <!-- Navigation Tabs -->
+      <div class="carousel-nav">
+        <button class="nav-tab active" data-slide="0">Media Strategy</button>
+        <button class="nav-tab" data-slide="1">Video Content</button>
+        <button class="nav-tab" data-slide="2">Campaign Management</button>
+        <button class="nav-tab" data-slide="3">Inbound Marketing</button>
+        <button class="nav-tab" data-slide="4">E-Reputation</button>
       </div>
-      <div class="category-grid grid-3">
-        <div class="proof-image"><img src="https://i.imgur.com/quPhoOe.jpg" alt="Media Strategy - PR Campaign"></div>
-        <div class="proof-image"><img src="https://i.imgur.com/ZwAQjqm.jpg" alt="Media Strategy - Media Coverage"></div>
-        <div class="proof-image"><img src="https://i.imgur.com/rSHZEHl.jpg" alt="Media Strategy - Event Management"></div>
+
+      <!-- Slides Container -->
+      <div class="carousel-slides">
+        <!-- Slide 1: Media Strategy -->
+        <div class="carousel-slide active" data-slide="0">
+          <div class="slide-header">
+            <h3 class="slide-title">Media Strategy</h3>
+            <p class="slide-subtitle">PR Strategy, Media listings, Event management</p>
+          </div>
+          <div class="slide-grid">
+            <div class="proof-image"><img src="https://i.imgur.com/quPhoOe.jpg" alt="Media Strategy - PR Campaign"></div>
+            <div class="proof-image"><img src="https://i.imgur.com/ZwAQjqm.jpg" alt="Media Strategy - Media Coverage"></div>
+            <div class="proof-image"><img src="https://i.imgur.com/rSHZEHl.jpg" alt="Media Strategy - Event Management"></div>
+          </div>
+        </div>
+
+        <!-- Slide 2: Video Content -->
+        <div class="carousel-slide" data-slide="1">
+          <div class="slide-header">
+            <h3 class="slide-title">Documentary & Video Brand Content</h3>
+            <p class="slide-subtitle">Creative direction, Production management, Social media</p>
+          </div>
+          <div class="slide-grid">
+            <div class="proof-image"><img src="https://i.imgur.com/uiPAtFs.jpg" alt="Video Content - Documentary Production"></div>
+            <div class="proof-image"><img src="https://i.imgur.com/6nUclwG.jpg" alt="Video Content - Creative Direction"></div>
+            <div class="proof-image"><img src="https://i.imgur.com/TgY1Fez.jpg" alt="Video Content - Social Media Campaign"></div>
+          </div>
+        </div>
+
+        <!-- Slide 3: Campaign Management -->
+        <div class="carousel-slide" data-slide="2">
+          <div class="slide-header">
+            <h3 class="slide-title">Campaign Management</h3>
+            <p class="slide-subtitle">360 campaign management, Media strategy, Reporting</p>
+          </div>
+          <div class="slide-grid">
+            <div class="proof-image"><img src="https://i.imgur.com/qYZt6K0.jpg" alt="Campaign Management - 360 Campaign"></div>
+            <div class="proof-image"><img src="https://i.imgur.com/O6EfVeu.jpg" alt="Campaign Management - Media Strategy"></div>
+            <div class="proof-image"><img src="https://i.imgur.com/g1j8qKm.jpg" alt="Campaign Management - Performance Reporting"></div>
+          </div>
+        </div>
+
+        <!-- Slide 4: Inbound Marketing -->
+        <div class="carousel-slide" data-slide="3">
+          <div class="slide-header">
+            <h3 class="slide-title">Inbound Marketing</h3>
+            <p class="slide-subtitle">Content Funnel, Creative direction, Media strategy</p>
+          </div>
+          <div class="slide-grid">
+            <div class="proof-image"><img src="https://i.imgur.com/8UdUUNb.jpg" alt="Inbound Marketing - Content Funnel"></div>
+            <div class="proof-image"><img src="https://i.imgur.com/DH6Zkug.jpg" alt="Inbound Marketing - Creative Direction"></div>
+            <div class="proof-image"><img src="https://i.imgur.com/O5UAI6w.jpg" alt="Inbound Marketing - Media Strategy"></div>
+          </div>
+        </div>
+
+        <!-- Slide 5: E-Reputation Management -->
+        <div class="carousel-slide" data-slide="4">
+          <div class="slide-header">
+            <h3 class="slide-title">E-Reputation Management</h3>
+            <p class="slide-subtitle">Brand monitoring, Country reports, Brand content action plans</p>
+          </div>
+          <div class="slide-grid grid-2">
+            <div class="proof-image"><img src="https://i.imgur.com/e5vDIn6.jpg" alt="E-Rep Management - Brand Monitoring"></div>
+            <div class="proof-image"><img src="https://i.imgur.com/Ulxyyzd.jpg" alt="E-Rep Management - Action Plans"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Progress Indicators -->
+      <div class="carousel-progress">
+        <span class="progress-dot active" data-slide="0"></span>
+        <span class="progress-dot" data-slide="1"></span>
+        <span class="progress-dot" data-slide="2"></span>
+        <span class="progress-dot" data-slide="3"></span>
+        <span class="progress-dot" data-slide="4"></span>
       </div>
     </div>
-
-    <!-- Documentary & Video Brand Content Category -->
-    <div class="category-section">
-      <div class="category-header">
-        <h3 class="category-title">Documentary & Video Brand Content</h3>
-        <p class="category-subtitle">Creative direction, Production management, Social media</p>
-      </div>
-      <div class="category-grid grid-3">
-        <div class="proof-image"><img src="https://i.imgur.com/uiPAtFs.jpg" alt="Video Content - Documentary Production"></div>
-        <div class="proof-image"><img src="https://i.imgur.com/6nUclwG.jpg" alt="Video Content - Creative Direction"></div>
-        <div class="proof-image"><img src="https://i.imgur.com/TgY1Fez.jpg" alt="Video Content - Social Media Campaign"></div>
-      </div>
-    </div>
-
-    <!-- Campaign Management Category -->
-    <div class="category-section">
-      <div class="category-header">
-        <h3 class="category-title">Campaign Management</h3>
-        <p class="category-subtitle">360 campaign management, Media strategy, Reporting</p>
-      </div>
-      <div class="category-grid grid-3">
-        <div class="proof-image"><img src="https://i.imgur.com/qYZt6K0.jpg" alt="Campaign Management - 360 Campaign"></div>
-        <div class="proof-image"><img src="https://i.imgur.com/O6EfVeu.jpg" alt="Campaign Management - Media Strategy"></div>
-        <div class="proof-image"><img src="https://i.imgur.com/g1j8qKm.jpg" alt="Campaign Management - Performance Reporting"></div>
-      </div>
-    </div>
-
-    <!-- Inbound Marketing Category -->
-    <div class="category-section">
-      <div class="category-header">
-        <h3 class="category-title">Inbound Marketing</h3>
-        <p class="category-subtitle">Content Funnel, Creative direction, Media strategy</p>
-      </div>
-      <div class="category-grid grid-3">
-        <div class="proof-image"><img src="https://i.imgur.com/8UdUUNb.jpg" alt="Inbound Marketing - Content Funnel"></div>
-        <div class="proof-image"><img src="https://i.imgur.com/DH6Zkug.jpg" alt="Inbound Marketing - Creative Direction"></div>
-        <div class="proof-image"><img src="https://i.imgur.com/O5UAI6w.jpg" alt="Inbound Marketing - Media Strategy"></div>
-      </div>
-    </div>
-
-    <!-- E-Rep Management Category -->
-    <div class="category-section">
-      <div class="category-header">
-        <h3 class="category-title">E-Reputation Management</h3>
-        <p class="category-subtitle">Brand monitoring, Country reports, Brand content action plans</p>
-      </div>
-      <div class="category-grid grid-2">
-        <div class="proof-image"><img src="https://i.imgur.com/e5vDIn6.jpg" alt="E-Rep Management - Brand Monitoring"></div>
-        <div class="proof-image"><img src="https://i.imgur.com/Ulxyyzd.jpg" alt="E-Rep Management - Action Plans"></div>
-      </div>
-    </div>
-
   </section>
 
   <!-- CTA -->
@@ -642,6 +676,115 @@
       </div>
     </div>
   </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Carousel functionality
+      const navTabs = document.querySelectorAll('.nav-tab');
+      const slides = document.querySelectorAll('.carousel-slide');
+      const dots = document.querySelectorAll('.progress-dot');
+      let currentSlide = 0;
+      let autoPlayInterval;
+
+      function showSlide(index) {
+        // Remove active classes
+        navTabs.forEach(tab => tab.classList.remove('active'));
+        slides.forEach(slide => {
+          slide.classList.remove('active', 'prev');
+        });
+        dots.forEach(dot => dot.classList.remove('active'));
+
+        // Add prev class to previous slides
+        for(let i = 0; i < index; i++) {
+          slides[i].classList.add('prev');
+        }
+
+        // Add active classes
+        navTabs[index].classList.add('active');
+        slides[index].classList.add('active');
+        dots[index].classList.add('active');
+        
+        currentSlide = index;
+      }
+
+      // Tab navigation
+      navTabs.forEach(tab => {
+        tab.addEventListener('click', function() {
+          const slideIndex = parseInt(this.getAttribute('data-slide'));
+          showSlide(slideIndex);
+          resetAutoPlay();
+        });
+      });
+
+      // Dot navigation
+      dots.forEach(dot => {
+        dot.addEventListener('click', function() {
+          const slideIndex = parseInt(this.getAttribute('data-slide'));
+          showSlide(slideIndex);
+          resetAutoPlay();
+        });
+      });
+
+      // Auto-play functionality
+      function startAutoPlay() {
+        autoPlayInterval = setInterval(() => {
+          const nextSlide = (currentSlide + 1) % slides.length;
+          showSlide(nextSlide);
+        }, 5000); // Change slide every 5 seconds
+      }
+
+      function resetAutoPlay() {
+        clearInterval(autoPlayInterval);
+        startAutoPlay();
+      }
+
+      // Keyboard navigation
+      document.addEventListener('keydown', function(e) {
+        if(e.target.closest('.visual-proof')) {
+          if(e.key === 'ArrowLeft' && currentSlide > 0) {
+            showSlide(currentSlide - 1);
+            resetAutoPlay();
+          } else if(e.key === 'ArrowRight' && currentSlide < slides.length - 1) {
+            showSlide(currentSlide + 1);
+            resetAutoPlay();
+          }
+        }
+      });
+
+      // Touch/swipe support for mobile
+      let touchStartX = 0;
+      let touchEndX = 0;
+      
+      const carouselContainer = document.querySelector('.carousel-slides');
+      
+      carouselContainer.addEventListener('touchstart', function(e) {
+        touchStartX = e.changedTouches[0].screenX;
+      }, {passive: true});
+      
+      carouselContainer.addEventListener('touchend', function(e) {
+        touchEndX = e.changedTouches[0].screenX;
+        handleSwipe();
+      }, {passive: true});
+      
+      function handleSwipe() {
+        if (touchEndX < touchStartX - 50 && currentSlide < slides.length - 1) {
+          showSlide(currentSlide + 1);
+          resetAutoPlay();
+        }
+        if (touchEndX > touchStartX + 50 && currentSlide > 0) {
+          showSlide(currentSlide - 1);
+          resetAutoPlay();
+        }
+      }
+
+      // Start auto-play
+      startAutoPlay();
+
+      // Pause on hover
+      carouselContainer.addEventListener('mouseenter', () => clearInterval(autoPlayInterval));
+      carouselContainer.addEventListener('mouseleave', () => startAutoPlay());
+    });
+  </script>
 
 </body>
 </html>
