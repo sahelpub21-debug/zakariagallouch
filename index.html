@@ -19,15 +19,15 @@
     .hero {
       min-height: 100vh;
       display: grid;
-      grid-template-columns: 1fr; /* (Modif) une seule colonne */
+      grid-template-columns: 1fr; /* 1 colonne, visuel supprimé */
       align-items: center;
       padding: 0 80px;
-      gap: 40px; /* (Modif) gap plus doux */
+      gap: 40px;
       background: #0a0a0a;
       color: #fff;
     }
 
-    /* (NOUVEAU) bloc auteur avec avatar rond */
+    /* Bloc auteur avec avatar rond */
     .author {
       display: flex;
       align-items: center;
@@ -67,9 +67,10 @@
       margin-bottom: 50px;
       line-height: 1.6;
     }
+
     .hero-stats {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(4, 1fr); /* 4 insights */
       gap: 40px;
       margin-bottom: 50px;
       padding-top: 30px;
@@ -99,11 +100,8 @@
     .cta-secondary { background: transparent; color: #fff; border-color: #333; margin-left: 12px; }
     .cta-secondary:hover { border-color: #fff; }
 
-    /* rangée de CTA harmonisée */
     .cta-row { display: flex; flex-wrap: wrap; gap: 12px; }
     .cta-row .cta-secondary { margin-left: 0; }
-
-    /* (SUPPRIMÉ) .hero-image grand visuel */
 
     /* ---------- SECTIONS GENERIC ---------- */
     .services, .clients, .impact, .visual-proof, .cta-section { padding: 120px 80px; }
@@ -135,9 +133,7 @@
     /* ---------- CLIENTS ---------- */
     .clients { background: #fff; }
     .clients-intro { text-align: center; max-width: 600px; margin: 0 auto 80px; }
-    .clients-grid {
-      display: grid; grid-template-columns: repeat(5, 1fr); gap: 30px; margin-bottom: 60px;
-    }
+    .clients-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 30px; margin-bottom: 60px; }
     .client-logo {
       height: 100px; background: #fafafa; display: flex; align-items: center; justify-content: center;
       font-size: 14px; color: #999; font-weight: 500; border: 1px solid #e0e0e0; transition: all 0.3s;
@@ -148,102 +144,44 @@
     .impact { background: #0a0a0a; color: #fff; }
     .impact .section-label { color: #666; }
     .impact .section-title { color: #fff; }
-
     .impact-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 60px;
-      margin-top: 60px;
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 60px; margin-top: 60px;
     }
     .impact-card { padding: 40px; background: #1a1a1a; border-left: 3px solid #fff; }
     .impact-number { font-size: clamp(32px, 9vw, 56px); font-weight: 300; margin-bottom: 12px; color: #fff; }
     .impact-label { font-size: 15px; color: #999; line-height: 1.5; }
 
-    /* ---------- VISUAL PROOF ---------- */
+    /* ---------- SELECTED PROJECTS — FADE SLIDER ---------- */
     .visual-proof { background: #fafafa; }
-    .proof-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 40px; margin-top: 60px; }
-    .proof-image {
-      width: 100%; height: 400px; background: #e0e0e0; display: flex; align-items: center; justify-content: center;
-      color: #999; font-size: 14px; border: 1px solid #d0d0d0; overflow: hidden;
+    .fade-slider {
+      position: relative;
+      max-width: 1100px;
+      margin: 60px auto 0;
+      height: 360px;          /* taille moyenne */
+      overflow: hidden;       /* pas de cadre visible */
     }
-    .proof-image img { width: 100%; height: 100%; object-fit: cover; object-position: center; }
+    .fade-slide {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transition: opacity .6s ease;
+      pointer-events: none;   /* non cliquable */
+    }
+    .fade-slide.is-active { opacity: 1; }
+    .fade-slide img {
+      max-height: 360px;
+      max-width: 100%;
+      width: auto;            /* no crop */
+      height: auto;           /* no crop */
+      object-fit: contain;    /* no crop */
+      display: block;
+      user-select: none;
+      -webkit-user-drag: none;
+    }
 
-    /* ---------- SELECTED PROJECTS SLIDER ---------- */
-.slider {
-  position: relative;
-  max-width: 1100px;
-  margin: 60px auto 0;
-}
-.slider-viewport {
-  overflow: hidden;
-  border: 1px solid #d0d0d0;
-  background: #f5f5f5;
-}
-.slider-track {
-  display: flex;
-  transition: transform 0.4s ease;
-  will-change: transform;
-}
-.slide {
-  flex: 0 0 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 16px;
-}
-.slide img {
-  width: 100%;
-  height: 360px;              /* taille moyenne */
-  object-fit: contain;        /* pas de crop */
-  background: #e9e9e9;        /* fond neutre autour de l’image */
-  border: 1px solid #dcdcdc;
-  display: block;
-  user-select: none;
-  -webkit-user-drag: none;
-}
-
-.slider-btn {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  border: 1px solid #ccc;
-  background: rgba(255,255,255,0.85);
-  backdrop-filter: blur(4px);
-  padding: 8px 12px;
-  cursor: pointer;
-  font-size: 18px;
-  line-height: 1;
-  color: #111;
-}
-.slider-btn:hover { background: #fff; }
-.slider-btn.prev { left: -8px; }
-.slider-btn.next { right: -8px; }
-
-.slider-dots {
-  display: flex;
-  gap: 8px;
-  justify-content: center;
-  margin-top: 12px;
-}
-.slider-dot {
-  width: 8px;
-  height: 8px;
-  border: 0;
-  border-radius: 999px;
-  background: #bbb;
-  cursor: pointer;
-}
-.slider-dot.is-active { background: #111; }
-
-/* Responsive */
-@media (max-width: 900px) {
-  .slide img { height: 300px; }
-}
-@media (max-width: 600px) {
-  .slide img { height: 220px; }
-  .slider-btn { display: none; } /* on cache les flèches sur mobile, swipe/dots suffisent */
-}
-    
     /* ---------- CTA ---------- */
     .cta-section { background: #fff; text-align: center; }
     .cta-box {
@@ -276,10 +214,11 @@
       .services, .clients, .impact, .visual-proof, .cta-section { padding: 80px 40px; }
       .services-grid { grid-template-columns: repeat(2, 1fr); gap: 28px; }
       .clients-grid { grid-template-columns: repeat(3, 1fr); gap: 20px; }
-      .proof-grid { grid-template-columns: 1fr; gap: 28px; }
 
       .impact-grid { grid-template-columns: repeat(2, minmax(0,1fr)); gap: 28px; }
       .impact-card { padding: 28px; }
+      .fade-slider { height: 300px; }
+      .fade-slide img { max-height: 300px; }
     }
     @media (max-width: 600px) {
       .hero { padding: 48px 20px; gap: 32px; }
@@ -300,6 +239,9 @@
       }
       .cta-secondary { margin-left: 0; }
       .footer-content { flex-direction: column; align-items: flex-start; }
+
+      .fade-slider { height: 220px; }
+      .fade-slide img { max-height: 220px; }
     }
   </style>
 </head>
@@ -309,7 +251,7 @@
   <section class="hero">
     <div class="hero-content">
 
-      <!-- (NOUVEAU) Avatar auteur -->
+      <!-- Avatar auteur -->
       <div class="author">
         <div class="author-avatar">
           <img src="https://i.imgur.com/2McZdaQ.png" alt="Zakaria Gallouch portrait" />
@@ -326,6 +268,7 @@
         10+ years driving measurable results for aviation finance, technology, hospitality, and retail.
       </p>
 
+      <!-- 4 insights -->
       <div class="hero-stats">
         <div class="stat-item">
           <div class="stat-number">10+</div>
@@ -339,6 +282,10 @@
           <div class="stat-number">+50</div>
           <div class="stat-label">Brands & Institutions Served</div>
         </div>
+        <div class="stat-item">
+          <div class="stat-number">6</div>
+          <div class="stat-label">Years in agency environment</div>
+        </div>
       </div>
       
       <!-- CTA ROW -->
@@ -351,9 +298,9 @@
           Get in Touch
         </a>
 
-        <a class="cta-primary"
-           href="#"
-           onclick="event.preventDefault(); event.stopImmediatePropagation(); window.open('https://calendly.com/gallouch-zakaria/30-min-consultation','_blank','noopener');">
+        <!-- Calendly : nouvel onglet, pas de navigation dans l'onglet courant -->
+        <a class="cta-primary" href="https://calendly.com/gallouch-zakaria/30-min-consultation"
+           onclick="event.preventDefault(); const w=window.open(this.href,'_blank'); if(w) w.opener=null; return false;">
           Book Free Consultation
         </a>
       </div>
@@ -468,39 +415,30 @@
     </div>
   </section>
 
-  <!-- VISUAL PROOF -->
+  <!-- VISUAL PROOF — FADE SLIDER -->
   <section class="visual-proof">
-  <div class="section-header">
-    <div class="section-label">Featured Work</div>
-    <h2 class="section-title">Selected Projects</h2>
-    <p class="section-description">
-      From aviation finance to sports technology—strategic communications that drive measurable brand authority.
-    </p>
-  </div>
-
-  <div class="slider" aria-label="Selected projects carousel" tabindex="0">
-    <button class="slider-btn prev" aria-label="Previous slide">‹</button>
-
-    <div class="slider-viewport">
-      <div class="slider-track">
-        <div class="slide"><img src="https://i.imgur.com/ebjeaXx.jpg" alt="Case study 1" draggable="false"></div>
-        <div class="slide"><img src="https://i.imgur.com/DH6Zkug.jpg" alt="Case study 2" draggable="false"></div>
-        <div class="slide"><img src="https://i.imgur.com/MpmppIl.jpg" alt="Case study 3" draggable="false"></div>
-        <div class="slide"><img src="https://i.imgur.com/8UdUUNb.jpg" alt="Case study 4" draggable="false"></div>
-        <div class="slide"><img src="https://i.imgur.com/rSHZEHl.jpg" alt="Case study 5" draggable="false"></div>
-        <div class="slide"><img src="https://i.imgur.com/1MM3Kry.jpg" alt="Case study 6" draggable="false"></div>
-        <div class="slide"><img src="https://i.imgur.com/X3rmKDy.jpg" alt="Case study 7" draggable="false"></div>
-        <div class="slide"><img src="https://i.imgur.com/DA2DvHx.jpg" alt="Case study 8" draggable="false"></div>
-        <div class="slide"><img src="https://i.imgur.com/uiPAtFs.jpg" alt="Case study 9" draggable="false"></div>
-        <div class="slide"><img src="https://i.imgur.com/6nUclwG.jpg" alt="Case study 10" draggable="false"></div>
-        <div class="slide"><img src="https://i.imgur.com/TgY1Fez.jpg" alt="Case study 11" draggable="false"></div>
-      </div>
+    <div class="section-header">
+      <div class="section-label">Featured Work</div>
+      <h2 class="section-title">Selected Projects</h2>
+      <p class="section-description">
+        From aviation finance to sports technology—strategic communications that drive measurable brand authority.
+      </p>
     </div>
 
-    <button class="slider-btn next" aria-label="Next slide">›</button>
-    <div class="slider-dots" role="tablist" aria-label="Slides"></div>
-  </div>
-</section>
+    <div class="fade-slider" id="projects-slider" aria-label="Selected projects">
+      <div class="fade-slide"><img src="https://i.imgur.com/ebjeaXx.jpg" alt="Case study 1"></div>
+      <div class="fade-slide"><img src="https://i.imgur.com/DH6Zkug.jpg" alt="Case study 2"></div>
+      <div class="fade-slide"><img src="https://i.imgur.com/MpmppIl.jpg" alt="Case study 3"></div>
+      <div class="fade-slide"><img src="https://i.imgur.com/8UdUUNb.jpg" alt="Case study 4"></div>
+      <div class="fade-slide"><img src="https://i.imgur.com/rSHZEHl.jpg" alt="Case study 5"></div>
+      <div class="fade-slide"><img src="https://i.imgur.com/1MM3Kry.jpg" alt="Case study 6"></div>
+      <div class="fade-slide"><img src="https://i.imgur.com/X3rmKDy.jpg" alt="Case study 7"></div>
+      <div class="fade-slide"><img src="https://i.imgur.com/DA2DvHx.jpg" alt="Case study 8"></div>
+      <div class="fade-slide"><img src="https://i.imgur.com/uiPAtFs.jpg" alt="Case study 9"></div>
+      <div class="fade-slide"><img src="https://i.imgur.com/6nUclwG.jpg" alt="Case study 10"></div>
+      <div class="fade-slide"><img src="https://i.imgur.com/TgY1Fez.jpg" alt="Case study 11"></div>
+    </div>
+  </section>
 
   <!-- CTA -->
   <section class="cta-section" id="portfolio">
@@ -530,5 +468,27 @@
     </div>
   </footer>
 
+  <!-- JS: slider auto-défilant -->
+  <script>
+    (function () {
+      const slider = document.getElementById('projects-slider');
+      if (!slider) return;
+      const slides = Array.from(slider.querySelectorAll('.fade-slide'));
+      if (!slides.length) return;
+
+      let i = 0;
+      slides.forEach((s, idx) => s.setAttribute('aria-hidden', idx === 0 ? 'false' : 'true'));
+      slides[0].classList.add('is-active');
+
+      const speedMs = 3500; // vitesse "normale"
+      setInterval(() => {
+        slides[i].classList.remove('is-active');
+        slides[i].setAttribute('aria-hidden', 'true');
+        i = (i + 1) % slides.length;
+        slides[i].classList.add('is-active');
+        slides[i].setAttribute('aria-hidden', 'false');
+      }, speedMs);
+    })();
+  </script>
 </body>
 </html>
