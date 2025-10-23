@@ -19,26 +19,21 @@
     img,video{max-width:100%;height:auto;display:block;border:0}
     a{color:var(--accent);text-decoration:none}
     .container{max-width:1180px;margin:0 auto;padding:0 18px}
-    /* Topbar */
     .nav{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.9);backdrop-filter:saturate(160%) blur(10px);border-bottom:1px solid var(--line)}
     .nav-inner{display:flex;align-items:center;justify-content:space-between;height:64px}
     .brand{display:flex;align-items:center;gap:10px;font-weight:800;letter-spacing:.2px;color:var(--ink)}
     .brand-logo{width:36px;height:36px;border-radius:10px;object-fit:contain;box-shadow:0 8px 20px rgba(14,165,233,.18)}
     .nav-links{display:none;gap:18px}
     .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:12px 18px;background:linear-gradient(135deg,var(--accent),#2563eb);border-radius:14px;color:#fff;font-weight:700;box-shadow:0 10px 24px rgba(37,99,235,.22);min-height:44px}
-    .btn-outline{background:#fff;border:1px solid var(--line);color:var(--ink);box-shadow:none}
-    /* Hero (mobile-first) */
-    .hero{padding:56px 0 28px;background:
-      radial-gradient(1200px 500px at 50% -12%, #eef8ff 0%, transparent 60%),
-      linear-gradient(180deg,#fff,#fff)}
+    .btn-outline{background:#fff;border:1px solid var(--line);color:#111827;box-shadow:none}
+    .hero{padding:56px 0 28px;background:radial-gradient(1200px 500px at 50% -12%, #eef8ff 0%, transparent 60%),linear-gradient(180deg,#fff,#fff)}
     .chip{display:inline-flex;align-items:center;gap:8px;padding:8px 12px;border-radius:999px;background:#eef7ff;border:1px solid var(--line);color:#475569;font-size:12px}
     .chip .dot{width:8px;height:8px;border-radius:999px;background:linear-gradient(135deg,var(--accent),#22d3ee)}
-    .h1{font-size:clamp(1.6rem,3.8vw,2.4rem);line-height:1.15;margin:14px 0 12px;color:var(--ink)}
+    .h1{font-size:clamp(1.6rem,3.8vw,2.4rem);line-height:1.15;margin:14px 0 12px;color:#0b1220}
     .lead{color:var(--muted);font-size:clamp(.95rem,2.8vw,1.05rem);max-width:66ch}
     .hero-card{margin-top:18px;background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:12px;box-shadow:var(--shadow)}
     .banner{aspect-ratio:16/9;border-radius:16px;overflow:hidden;background:#f0f7ff;border:1px solid #dbeafe}
     .banner img{width:100%;height:100%;object-fit:cover}
-    /* Sections */
     .section{padding:48px 0}
     .subtitle{font-weight:800;letter-spacing:.2px;margin:0 0 8px;color:#111827;font-size:clamp(1.05rem,2.8vw,1.25rem)}
     .muted{color:var(--muted)}
@@ -60,7 +55,6 @@
     .cta{display:grid;gap:12px}
     .cta .btn,.cta .btn-outline{width:100%}
     .footer{padding:34px 0 56px;border-top:1px solid var(--line);color:#6b7280}
-    /* Responsive upgrades (tablet/desktop) */
     @media (min-width:720px){
       .hero-grid{display:grid;grid-template-columns:1.2fr .9fr;gap:24px}
       .grid-2{grid-template-columns:1fr 1fr}
@@ -70,9 +64,7 @@
       .cta{grid-template-columns:auto auto}
       .cta .btn,.cta .btn-outline{width:auto}
     }
-    /* Focus styles */
     :where(a,button,[role="button"],.btn,.btn-outline):focus-visible{outline:none;box-shadow:var(--ring)}
-    /* Motion sensitivity */
     @media (prefers-reduced-motion: reduce){ html{scroll-behavior:auto} }
   </style>
 </head>
@@ -81,8 +73,8 @@
   <header class="nav" role="banner">
     <div class="container nav-inner">
       <div class="brand" aria-label="Fan4All case study">
-        <!-- FIXED: use direct image link (i.imgur.com + extension) -->
-        <img class="brand-logo" src="https://i.imgur.com/POmvxxL.png" alt="Fan4All logo" loading="lazy" />
+        <!-- Use only the Imgur ID; JS will resolve the right extension -->
+        <img class="brand-logo" data-imgur="POmvxxL" alt="Fan4All logo" decoding="async" loading="lazy" />
         <span>Fan4All — SportTech</span>
       </div>
       <nav class="nav-links" aria-label="Sections">
@@ -113,9 +105,8 @@
         <span class="pill">Content to Commerce</span>
       </div>
       <div class="hero-card" style="margin-top:18px">
-        <!-- FIXED: header image uses direct i.imgur.com link -->
         <div class="banner">
-          <img src="https://i.imgur.com/FT1SQ16.png" alt="Fan4All app / marketplace hero" loading="lazy" />
+          <img data-imgur="FT1SQ16" alt="Fan4All app / marketplace hero" decoding="async" loading="lazy" />
         </div>
       </div>
     </div>
@@ -194,9 +185,8 @@
             <li><b>Creator Fits:</b> try-ons, sizing, styling for matchday.</li>
             <li><b>Fan Stories:</b> user clips, rivalries, local club culture.</li>
           </ul>
-          <!-- Trailer thumbnail (direct link) -->
-          <a class="placeholder" href="https://i.imgur.com/FT1SQ16.png" target="_blank" rel="noopener" aria-label="Open trailer thumbnail">
-            <img src="https://i.imgur.com/FT1SQ16.png" alt="Trailer thumbnail" loading="lazy" />
+          <a class="placeholder" href="https://imgur.com/FT1SQ16" target="_blank" rel="noopener" aria-label="Open trailer thumbnail">
+            <img data-imgur="FT1SQ16" alt="Trailer thumbnail" decoding="async" loading="lazy" />
           </a>
         </div>
         <div class="card">
@@ -206,9 +196,8 @@
             <li>“Compare kits” carousels with close-ups.</li>
             <li>Localized copy & shipping times.</li>
           </ul>
-          <!-- PDP blocks screenshot (direct link) -->
           <figure class="placeholder" style="margin-top:10px">
-            <img src="https://i.imgur.com/F0AKpZu.png" alt="PDP blocks screenshot" loading="lazy" />
+            <img data-imgur="F0AKpZu" alt="PDP blocks screenshot" decoding="async" loading="lazy" />
           </figure>
         </div>
         <div class="card">
@@ -218,16 +207,15 @@
             <li>Creator brief templates & legal checklist.</li>
             <li>Post calendar + UTM presets.</li>
           </ul>
-          <!-- Partner toolkit preview (direct link) -->
-          <a class="placeholder" style="margin-top:10px" href="https://i.imgur.com/U2mS9XQ.png" target="_blank" rel="noopener" aria-label="Open partner toolkit">
-            <img src="https://i.imgur.com/U2mS9XQ.png" alt="Partner toolkit preview" loading="lazy" />
+          <a class="placeholder" style="margin-top:10px" href="https://imgur.com/U2mS9XQ" target="_blank" rel="noopener" aria-label="Open partner toolkit">
+            <img data-imgur="U2mS9XQ" alt="Partner toolkit preview" decoding="async" loading="lazy" />
           </a>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Results -->
+  <!-- Results (with new KPIs) -->
   <section id="results" class="section" role="region" aria-labelledby="results-title">
     <div class="container">
       <h2 id="results-title" class="subtitle">Results (Highlights)</h2>
@@ -252,8 +240,7 @@
     <div class="container">
       <h2 id="gallery-title" class="subtitle">Gallery</h2>
       <figure class="card" style="max-width:820px;margin:10px auto">
-        <!-- FIXED: direct link -->
-        <img src="https://i.imgur.com/rptJW2t.png" alt="Fan4All feature image" loading="lazy" style="width:100%;height:auto;border-radius:14px" />
+        <img data-imgur="rptJW2t" alt="Fan4All feature image" decoding="async" loading="lazy" style="width:100%;height:auto;border-radius:14px" />
       </figure>
     </div>
   </section>
@@ -280,9 +267,24 @@
     </div>
   </footer>
 
+  <!-- Imgur auto-fix: try .png → .jpg → .jpeg → .webp -->
   <script>
+    (function(){
+      const exts = ["png","jpg","jpeg","webp"];
+      function tryLoad(img, id, i=0){
+        if(i >= exts.length){ img.alt += " (image unavailable)"; return; }
+        const url = `https://i.imgur.com/${id}.${exts[i]}`;
+        const test = new Image();
+        test.onload = () => { img.src = url; };
+        test.onerror = () => tryLoad(img, id, i+1);
+        test.src = url;
+      }
+      document.querySelectorAll("img[data-imgur]").forEach(img=>{
+        const id = img.getAttribute("data-imgur");
+        tryLoad(img, id);
+      });
+    })();
     document.getElementById('year').textContent = new Date().getFullYear();
-    for (const img of document.querySelectorAll('img')) img.loading = 'lazy';
   </script>
 </body>
 </html>
